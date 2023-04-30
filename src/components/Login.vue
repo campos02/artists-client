@@ -2,8 +2,8 @@
 import axios from 'axios'
 import { ref } from 'vue'
 import { useLoggedIn } from '../composables/loggedIn'
-import requestUrl from '../composables/requestUrl'
 
+const requestUrl = import.meta.env.VITE_API_ENDPOINT
 const email = ref("")
 const password = ref("")
 const { setLoggedIn } = useLoggedIn()

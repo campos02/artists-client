@@ -3,8 +3,8 @@ import AlbumList from './AlbumList.vue'
 import { XMarkIcon } from '@heroicons/vue/24/outline'
 import { ref, watch } from 'vue'
 import axios from 'axios'
-import requestUrl from '../composables/requestUrl'
 
+const requestUrl = import.meta.env.VITE_API_ENDPOINT
 const props = defineProps(['category'])
 let artists = ref([])
 const newArtist = ref("")

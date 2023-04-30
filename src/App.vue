@@ -5,8 +5,8 @@ import { ArrowRightOnRectangleIcon } from '@heroicons/vue/24/outline'
 import ArtistList from './components/ArtistList.vue'
 import Login from './components/Login.vue'
 import axios from 'axios'
-import requestUrl from './composables/requestUrl'
 
+const requestUrl = import.meta.env.VITE_API_ENDPOINT
 const category = ref("listening")
 const { loggedIn, setLoggedIn } = useLoggedIn()
 axios.defaults.withCredentials = true

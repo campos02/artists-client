@@ -3,8 +3,8 @@ import { ref } from 'vue'
 import { XMarkIcon } from '@heroicons/vue/24/outline'
 import { ChevronDownIcon } from '@heroicons/vue/24/outline'
 import axios from 'axios'
-import requestUrl from '../composables/requestUrl'
 
+const requestUrl = import.meta.env.VITE_API_ENDPOINT
 const props = defineProps(['artist'])
 const newAlbum = ref("")
 
