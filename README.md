@@ -1,4 +1,4 @@
-# site-client
+# Personal Website API Client
 
 A Vue client for the private artists API at [campos02.me](https://campos02.me)
 
