@@ -8,6 +8,9 @@ const email = ref("")
 const password = ref("")
 const { setLoggedIn } = useLoggedIn()
 
+/**
+ * Login in the API, if successful clear inputs and remove login screen
+ */
 async function login() {
     await axios.get(`${requestUrl}/sanctum/csrf-cookie`)
     await axios.post(`${requestUrl}/login`, {
@@ -21,6 +24,7 @@ async function login() {
     setLoggedIn(true)
 }
 
+// Check if the user is logged in, remove login screen if so
 axios.get(`${requestUrl}/api/user`).then(() => setLoggedIn(true))
 </script>
 

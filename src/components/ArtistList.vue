@@ -9,6 +9,11 @@ const props = defineProps(['category'])
 let artists = ref([])
 const newArtist = ref("")
 
+/**
+ * Get artists data from the API again
+ *
+ * @param category
+ */
 async function updateArtists(category) {
     await axios.get(`${requestUrl}/api/artists/${category}`).then((response) => {artists.value = response.data.data})
     await artists.value.forEach(artist => {
@@ -16,12 +21,17 @@ async function updateArtists(category) {
     });
 }
 
+/**
+ * Add a new artist to the endpoint and, if successful, push the data received to the artists array
+ */
 async function addArtist() {
     if (newArtist.value === "") {
         return
     }
 
+    // Capitalize the first letter for the API
     const category = props.category.charAt(0).toUpperCase() + props.category.slice(1)
+
     await axios.post(`${requestUrl}/api/artists`, {
         name: newArtist.value,
         category: category
@@ -37,6 +47,11 @@ async function addArtist() {
     })
 }
 
+/**
+ * Remove an artist from the endpoint and, if successful, from the artists array
+ *
+ * @param artist 
+ */
 async function removeArtist(artist) {
     await axios.delete(`${requestUrl}/api/artists`, {
         data: { name: artist.name }
@@ -46,10 +61,14 @@ async function removeArtist(artist) {
     })
 }
 
+/**
+ * Request artists again if a new category is selected
+ */
 watch(() => props.category, () => {
     updateArtists(props.category)
 })
 
+// Request data from the API on first render
 updateArtists(props.category)
 </script>
 

@@ -8,6 +8,9 @@ const requestUrl = import.meta.env.VITE_API_ENDPOINT
 const props = defineProps(['artist'])
 const newAlbum = ref("")
 
+/**
+ * Show or hide an artist's albums
+ */
 function listAlbums()
 {    
     if (props.artist.show) {
@@ -19,6 +22,9 @@ function listAlbums()
     }
 }
 
+/**
+ * Add an album to an artist's list on the endpoint and, if successful, to its albums array
+ */
 async function addAlbum() {
     if (newAlbum.value === "") {
         return
@@ -38,6 +44,11 @@ async function addAlbum() {
     })
 }
 
+/**
+ * Remove an artist's album from the endpoint and, if successful, from its albums array
+ *
+ * @param album 
+ */
 async function removeAlbum(album) {
     await axios.delete(`${requestUrl}/api/artists/${props.artist.id}/albums`, {
         data: { album: album.album }
@@ -74,6 +85,7 @@ async function removeAlbum(album) {
 </template>
 
 <style>
+/* Modify bottom margin value while making the element invisible */
 .v-enter-active,
 .v-leave-active {
     transition: all 0.2s ease-in-out;

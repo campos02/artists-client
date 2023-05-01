@@ -11,10 +11,18 @@ const category = ref("listening")
 const { loggedIn, setLoggedIn } = useLoggedIn()
 axios.defaults.withCredentials = true
 
+/**
+ * Logout and go back to login screen if successful
+ */
 async function logout() {
   await axios.get(`${requestUrl}/logout`).then(() => setLoggedIn(false))
 }
 
+/**
+ * Set artists category
+ *
+ * @param cat Category to be set
+ */
 function setCategory(cat) {
   category.value = cat
 }
