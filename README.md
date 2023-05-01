@@ -1,6 +1,6 @@
 # site-client
 
-A Vue client for the main website's private API
+A Vue client for the private artists API at [campos02.me](https://campos02.me)
 
 ## Recommended IDE Setup
 
