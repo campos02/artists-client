@@ -7,6 +7,7 @@ const requestUrl = import.meta.env.VITE_API_ENDPOINT
 const email = ref("")
 const password = ref("")
 const { setLoggedIn } = useLoggedIn()
+const remember = ref(false)
 
 /**
  * Login in the API, if successful clear inputs and remove login screen
@@ -16,7 +17,7 @@ async function login() {
     await axios.post(`${requestUrl}/login`, {
         email: email.value,
         password: password.value,
-        remember: true
+        remember: remember.value
     })
     
     email.value = ""
@@ -29,8 +30,12 @@ axios.get(`${requestUrl}/api/user`).then(() => setLoggedIn(true))
 </script>
 
 <template>
-    <h1 class="text-xl font-bold">App login</h1>
+    <h1 class="text-xl font-bold">Client Login</h1>
     <input v-model="email" @keyup.enter="login" class="bg-inherit outline-none border-2 rounded w-72 p-1 mb-6" placeholder="Email"/>
     <input type="password" v-model="password" @keyup.enter="login" class="bg-inherit outline-none border-2 rounded w-72 p-1 mb-6" placeholder="Password"/>
-    <button @click="login" class="hover:text-white">Login</button>
+    <div>
+        <input type="checkbox" id="remembercheckbox" v-model="remember" class="m-1 mb-0"/>
+        <label for="remembercheckbox">Remember Me</label>
+    </div>
+    <button @click="login" class="hover:text-white border-2 py-1 px-2 rounded self-center">Login</button>
 </template>
