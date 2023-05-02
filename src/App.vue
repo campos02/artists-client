@@ -11,6 +11,9 @@ const category = ref("listening")
 const { loggedIn, setLoggedIn } = useLoggedIn()
 axios.defaults.withCredentials = true
 
+// Check if the user is logged in, remove login screen if so
+axios.get(`${requestUrl}/api/user`).then(() => setLoggedIn(true))
+
 /**
  * Logout and go back to login screen if successful
  */

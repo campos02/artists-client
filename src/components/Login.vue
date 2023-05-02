@@ -24,9 +24,6 @@ async function login() {
     password.value = ""
     setLoggedIn(true)
 }
-
-// Check if the user is logged in, remove login screen if so
-axios.get(`${requestUrl}/api/user`).then(() => setLoggedIn(true))
 </script>
 
 <template>
