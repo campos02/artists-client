@@ -13,6 +13,8 @@ dist
 dist-ssr
 coverage
 *.local
+.env
+certbot
 
 /cypress/videos/
 /cypress/screenshots/
