@@ -10,6 +10,7 @@ const requestUrl = import.meta.env.VITE_API_ENDPOINT
 const category = ref("listening")
 const { loggedIn, setLoggedIn } = useLoggedIn()
 axios.defaults.withCredentials = true
+axios.defaults.withXSRFToken = true
 
 // Check if the user is logged in, remove login screen if so
 axios.get(`${requestUrl}/api/user`).then(() => setLoggedIn(true))
