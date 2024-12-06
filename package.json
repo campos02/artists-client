@@ -1,5 +1,5 @@
 {
-  "name": "site-client",
+  "name": "artists-client",
   "version": "0.5.2",
   "private": true,
   "scripts": {
@@ -20,6 +20,6 @@
     "eslint-plugin-vue": "^9.9.0",
     "postcss": "^8.4.31",
     "tailwindcss": "^3.3.1",
-    "vite": "^4.5.3"
+    "vite": ">=4.5.5"
   }
 }
