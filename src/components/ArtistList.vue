@@ -1,7 +1,7 @@
 <script setup>
 import AlbumList from './AlbumList.vue'
 import { XMarkIcon } from '@heroicons/vue/24/outline'
-import { ref, watch } from 'vue'
+import { ref, watch, onMounted } from 'vue'
 import axios from 'axios'
 
 const requestUrl = import.meta.env.VITE_API_ENDPOINT
