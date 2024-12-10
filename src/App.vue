@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useLoggedIn } from './composables/loggedIn'
-import { ArrowRightOnRectangleIcon } from '@heroicons/vue/24/outline'
+import { ArrowRightStartOnRectangleIcon } from '@heroicons/vue/24/outline'
 import ArtistList from './components/ArtistList.vue'
 import Login from './components/Login.vue'
 import axios from 'axios'
@@ -35,7 +35,7 @@ function setCategory(cat) {
 <template>
   <div class="grid h-screen">
     <button @click="logout" class="p-2 hover:bg-neutral-700 justify-self-end self-start" v-if="loggedIn">
-      <ArrowRightOnRectangleIcon class="w-5 h-5"/>
+      <ArrowRightStartOnRectangleIcon class="w-5 h-5"/>
     </button>
     <div class="flex flex-col text-center space-y-3 justify-self-center" :class="[{'self-center': !loggedIn}, {'self-start': loggedIn}]">
       <Login v-if="!loggedIn"/>

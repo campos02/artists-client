@@ -13,13 +13,10 @@ const newAlbum = ref("")
  */
 function listAlbums()
 {    
-    if (props.artist.show) {
+    if (props.artist.show)
         props.artist.show = !props.artist.show
-    }
     else
-    {
         props.artist.show = ref(true)
-    }
 }
 
 /**

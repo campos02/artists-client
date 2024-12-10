@@ -15,10 +15,7 @@ const newArtist = ref("")
  * @param category
  */
 async function updateArtists(category) {
-    await axios.get(`${requestUrl}/api/artists/${category}`).then((response) => {artists.value = response.data.data})
-    await artists.value.forEach(artist => {
-        artist.albums = axios.get(`${requestUrl}/api/artists/${artist.id}/albums`).then((response) => {artist.albums = response.data.data})
-    });
+    await axios.get(`${requestUrl}/api/artists/${category}`).then((response) => {artists.value = response.data.data.artists})
 }
 
 /**
@@ -68,8 +65,10 @@ watch(() => props.category, () => {
     updateArtists(props.category)
 })
 
-// Request data from the API on first render
-updateArtists(props.category)
+onMounted(() => {
+    // Request data from the API when mounted
+    updateArtists(props.category)
+})
 </script>
 
 <template>
