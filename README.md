@@ -1,6 +1,6 @@
 # Personal Website API Client
 
-A Vue client for the private artists API at [campos02.me](https://campos02.me), mainly a sort of admin panel
+A Vue client for the private artists API at [camposs.net](https://camposs.net), mainly a sort of admin panel
 
 ## Recommended IDE Setup
 
